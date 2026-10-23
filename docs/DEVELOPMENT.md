@@ -16,6 +16,20 @@ build instructions, see the [README](../README.md).
 - `create-dmg` for packaging (`brew install create-dmg`); `cargo-bundle` is
   installed automatically by `cargo run -p xtask -- macos bundle`
 
+## Build Dev bundle only in Local use 
+````
+cd ~/Documents/GitHub/OpenLogi
+
+# 构建已验证成功的 Dev 版本
+cargo run -p xtask -- macos bundle
+
+# 复制到 Applications（先退出正在运行的 Dev 版）
+ditto target/release/bundle/osx/OpenLogi.app "/Applications/OpenLogi Dev.app"
+
+# 启动
+open "/Applications/OpenLogi Dev.app"
+```` 
+
 ## Building from source
 
 Nix/devenv is optional. A normal Rust toolchain is enough.
